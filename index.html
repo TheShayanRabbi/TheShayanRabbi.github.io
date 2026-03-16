@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Space</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-6">
+
+    <div class="glass max-w-2xl w-full p-8 shadow-2xl text-white">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl font-bold tracking-tight">Hello, I'm [Your Name]</h1>
+            <p class="text-purple-200 mt-2">Future Developer & Creator</p>
+        </header>
+
+        <section class="space-y-6">
+            <div class="bg-white/10 p-4 rounded-xl">
+                <h2 class="text-xl font-semibold mb-2">🚀 My Current Project</h2>
+                <p class="text-sm text-purple-100 leading-relaxed">
+                    I am currently using AI agents and GitHub Pages to build my first digital home on the web.
+                    This site is hosted directly from a GitHub repository!
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white/10 p-4 rounded-xl">
+                    <h3 class="font-bold">Interests</h3>
+                    <ul class="text-sm mt-2 list-disc list-inside opacity-80">
+                        <li>AI Agents</li>
+                        <li>Web Design</li>
+                        <li>Source Control</li>
+                    </ul>
+                </div>
+                <div class="bg-white/10 p-4 rounded-xl flex flex-col justify-center items-center">
+                    <span class="text-xs uppercase tracking-widest opacity-60">Status</span>
+                    <span class="text-green-400 font-mono text-lg">● Live on GitHub</span>
+                </div>
+            </div>
+        </section>
+
+        <footer class="mt-12 text-center border-t border-white/10 pt-6">
+            <a href="https://github.com/yourusername" class="hover:text-purple-300 transition-colors">
+                View my GitHub Profile →
+            </a>
+        </footer>
+    </div>
+
+</body>
+
+</html>
