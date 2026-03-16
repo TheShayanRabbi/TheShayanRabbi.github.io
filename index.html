@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Journal & Portfolio</title>
+    <title>Shayan Rabbi | Executive Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lora:ital,wght@0,400;0,700;1,400&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
 
     <script>
@@ -15,125 +14,98 @@
             theme: {
                 extend: {
                     colors: {
-                        'paper': '#FDFBF7',
-                        'beige-light': '#F5EBE0',
-                        'earth-brown': '#3E2723',
-                        'accent-red': '#BC4749',
+                        'paper': '#F4F1E8',
+                        'ibm-dark': '#2B1B17',
+                        'ibm-amber': '#FF9F1C',
+                        'ibm-red': '#BC4749',
                     },
                     fontFamily: {
-                        serif: ['Lora', 'serif'],
-                        sans: ['Inter', 'sans-serif'],
+                        'garamond': ['EB Garamond', 'serif'],
+                        'trebuchet': ['Trebuchet MS', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
     <style>
+        /* The Dot Grid Pattern from your slide */
         body {
+            background-color: #F4F1E8;
+            background-image: radial-gradient(#2B1B17 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            /* Adjust for grid density */
+            color: #2B1B17;
+        }
+
+        /* The IBM "Sign" Effect */
+        .logo-box {
             background-color: #FDFBF7;
-            color: #3E2723;
-            font-family: 'Inter', sans-serif;
+            border: 2px solid #2B1B17;
+            transition: all 0.3s ease;
+            box-shadow: 4px 4px 0px #2B1B17;
         }
 
-        .serif-text {
-            font-family: 'Lora', serif;
+        .logo-box:hover {
+            background-color: #FF9F1C;
+            /* Amber Glow */
+            box-shadow: 0px 0px 20px rgba(255, 159, 28, 0.6);
+            transform: translate(2px, 2px);
         }
 
-        .red-link {
-            color: #BC4749;
-            text-decoration: underline;
-            text-underline-offset: 4px;
-            transition: opacity 0.2s;
+        .name-stack {
+            line-height: 0.8;
+            letter-spacing: -0.02em;
         }
 
-        .red-link:hover {
-            opacity: 0.7;
-        }
-
-        .card {
-            background-color: #F5EBE0;
-            border: 1px solid rgba(62, 39, 35, 0.05);
+        /* Separation Line */
+        .separator {
+            border: none;
+            height: 1px;
+            background: repeating-linear-gradient(90deg, #2B1B17, #2B1B17 4px, transparent 4px, transparent 8px);
+            opacity: 0.3;
         }
     </style>
 </head>
 
-<body class="selection:bg-red-100">
+<body class="font-trebuchet selection:bg-ibm-amber">
 
-    <div class="max-w-3xl mx-auto px-6 py-20">
-        <nav class="flex justify-between items-center mb-24 uppercase tracking-widest text-xs font-semibold opacity-60">
-            <span>Vol. 2026</span>
-            <div class="space-x-6">
-                <a href="#" class="hover:opacity-100">Projects</a>
-                <a href="#" class="hover:opacity-100">Notes</a>
-                <a href="#" class="hover:opacity-100">Contact</a>
+    <nav class="max-w-6xl mx-auto px-8 py-10">
+        <div class="flex items-center text-xs tracking-[0.2em] uppercase font-bold">
+            <a href="/" class="logo-box px-3 py-1 mr-10 text-sm tracking-normal">SR</a>
+
+            <div class="flex space-x-10 opacity-80">
+                <a class="hover:text-ibm-red transition-colors cursor-pointer">Projects</a>
+                <a class="hover:text-ibm-red transition-colors cursor-pointer">Library</a>
+                <a class="hover:text-ibm-red transition-colors cursor-pointer">Writing</a>
+                <a class="hover:text-ibm-red transition-colors cursor-pointer">Chatting!</a>
             </div>
-        </nav>
+        </div>
+        <hr class="separator mt-8">
+    </nav>
 
-        <header class="mb-20">
-            <h1 class="serif-text text-5xl md:text-6xl font-normal leading-tight mb-6 italic">
-                Curation, code, and <span class="text-accent-red">intentional</span> design.
+    <main class="max-w-6xl mx-auto px-8 py-20">
+
+        <header class="mb-24">
+            <p class="text-[10px] tracking-[0.4em] uppercase opacity-50 mb-8">Executive Status Report — 2026</p>
+
+            <h1
+                class="font-garamond text-8xl md:text-[12rem] font-bold text-ibm-red name-stack hover:text-ibm-dark transition-colors duration-700 cursor-default">
+                SHAYAN<br>RABBI
             </h1>
-            <p class="text-lg max-w-xl leading-relaxed opacity-80">
-                Hi, I'm Shayan Rabbi
-            </p>
         </header>
 
-        <main class="space-y-16">
+        <section class="max-w-2xl border-l-2 border-ibm-red pl-8 py-2">
+            <h2 class="text-sm font-bold uppercase tracking-widest mb-4">Partnerships & Strategy</h2>
+            <p class="font-garamond text-2xl leading-relaxed italic opacity-90">
+                Building digital infrastructure at the intersection of human intuition and machine intelligence.
+            </p>
+        </section>
 
-            <section>
-                <h2 class="uppercase tracking-widest text-xs font-bold mb-8 border-b border-earth-brown/10 pb-2">Recent
-                    Thoughts</h2>
-                <div class="space-y-8">
-                    <div class="group">
-                        <span class="text-xs opacity-50 block mb-1">MARCH 2026</span>
-                        <h3 class="serif-text text-2xl group-hover:text-accent-red transition-colors cursor-pointer">The
-                            rise of the "Vibe Coder"</h3>
-                        <p class="opacity-70 mt-2">Notes on how natural language is replacing syntax in the creative
-                            process...</p>
-                    </div>
-                    <div class="group">
-                        <span class="text-xs opacity-50 block mb-1">FEB 2026</span>
-                        <h3 class="serif-text text-2xl group-hover:text-accent-red transition-colors cursor-pointer">
-                            Analog Aesthetics in a Digital World</h3>
-                        <p class="opacity-70 mt-2">Why we crave cream paper and serif fonts in an era of glass and neon.
-                        </p>
-                    </div>
-                </div>
-            </section>
+    </main>
 
-            <section>
-                <h2 class="uppercase tracking-widest text-xs font-bold mb-8 border-b border-earth-brown/10 pb-2">
-                    Selected Works</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="card p-6 rounded-sm">
-                        <div
-                            class="h-40 bg-earth-brown/5 mb-4 rounded-sm flex items-center justify-center text-accent-red opacity-30 text-4xl">
-                            🖻</div>
-                        <h4 class="font-semibold">GitHub Pages Template</h4>
-                        <p class="text-sm opacity-70 mt-1">A bespoke landing page for creative developers.</p>
-                    </div>
-                    <div class="card p-6 rounded-sm">
-                        <div
-                            class="h-40 bg-earth-brown/5 mb-4 rounded-sm flex items-center justify-center text-accent-red opacity-30 text-4xl">
-                            ⌨</div>
-                        <h4 class="font-semibold">Agentic Workflows</h4>
-                        <p class="text-sm opacity-70 mt-1">Exploring the boundaries of autonomous coding.</p>
-                    </div>
-                </div>
-            </section>
-
-        </main>
-
-        <footer
-            class="mt-32 pt-10 border-t border-earth-brown/10 flex flex-col md:flex-row justify-between items-center text-sm opacity-60">
-            <p>&copy; 2026 — Made with Gemini & Antigravity</p>
-            <div class="space-x-4 mt-4 md:mt-0">
-                <a href="#" class="red-link">GitHub</a>
-                <a href="#" class="red-link">Notion</a>
-                <a href="#" class="red-link">Email</a>
-            </div>
-        </footer>
-    </div>
+    <footer class="max-w-6xl mx-auto px-8 py-20 opacity-30 text-[10px] tracking-widest uppercase">
+        Toronto Data Centre // 43.6532° N, 79.3832° W
+    </footer>
 
 </body>
 
