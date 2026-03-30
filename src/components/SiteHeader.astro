@@ -1,0 +1,35 @@
+---
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/projects", label: "Projects" },
+  { href: "/writing", label: "Writing" },
+  { href: "/about", label: "About" },
+];
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+---
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-mark" href="/" aria-label="Shayan Rabbi home">SR</a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-list">
+        {
+          navItems.map((item) => {
+            const normalized = item.href.replace(/\/$/, "") || "/";
+            const isActive = currentPath === normalized;
+
+            return (
+              <li>
+                <a href={item.href} data-active={isActive ? "true" : "false"}>
+                  {item.label}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+  </div>
+</header>

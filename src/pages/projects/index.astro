@@ -1,0 +1,47 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContentCard from "../../components/ContentCard.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import { sortByPublishedDate } from "../../utils/content";
+
+const projects = sortByPublishedDate(await getCollection("projects"));
+---
+
+<BaseLayout
+  title="Projects | Shayan Rabbi"
+  description="Selected projects, experiments, and product work by Shayan Rabbi."
+>
+  <section class="page-intro surface">
+    <div class="article">
+      <p class="eyebrow">Projects</p>
+      <h1 class="page-title">Products, systems, and experiments worth keeping.</h1>
+      <p class="lede">
+        This section is powered by an Astro content collection, which means each
+        project lives as its own markdown file with typed frontmatter.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <SectionHeading
+      eyebrow="Archive"
+      title="Current project index"
+      description="As the site grows, this page becomes the stable directory instead of forcing every new project onto the homepage."
+    />
+
+    <div class="card-grid">
+      {
+        projects.map((project) => (
+          <ContentCard
+            href={`/projects/${project.id}/`}
+            kicker={project.data.status}
+            title={project.data.title}
+            description={project.data.description}
+            meta={project.data.tags.join(" / ")}
+          />
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>
