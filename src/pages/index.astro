@@ -1,107 +1,16 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ContentCard from "../components/ContentCard.astro";
-import SectionHeading from "../components/SectionHeading.astro";
-import { sortByPublishedDate } from "../utils/content";
-
-const featuredProjects = sortByPublishedDate(
-  await getCollection("projects", ({ data }) => data.featured),
-).slice(0, 2);
-
-const featuredWriting = sortByPublishedDate(
-  await getCollection("writing", ({ data }) => !data.draft),
-).slice(0, 2);
 ---
 
 <BaseLayout
   title="Shayan Rabbi | Venture, digital infrastructure, and writing"
   description="Personal website for projects, essays, and ongoing work by Shayan Rabbi."
 >
-  <section class="hero surface">
-    <div class="hero-copy">
-      <p class="eyebrow">Toronto / venture / digital infrastructure</p>
-      <h1>Shayan Rabbi</h1>
-      <p class="lede">
-        I used to do heart surgery; now I do venture. This site is where I am
-        building a public body of work around digital infrastructure, product
-        thinking, and the ideas worth documenting properly.
-      </p>
-      <div class="hero-actions">
-        <a class="button button-primary" href="/projects">See projects</a>
-        <a class="button button-secondary" href="/writing">Read writing</a>
-      </div>
-    </div>
-
-    <div class="hero-panel">
-      <p class="eyebrow">Current update</p>
-      <ul class="signal-list">
-        <li>Building digital infrastructure at the intersection of human intuition and machine intelligence.</li>
-        <li>Rebuilding the website so projects and essays can live in one coherent system.</li>
-        <li>Testing which web elements are truly functional and which are just business masks for poor design.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="grid-two">
-    <div class="surface">
-      <SectionHeading
-        eyebrow="Intent"
-        title="A site that can hold actual work"
-        description="The goal is not a decorative portfolio shell. The site needs room for projects, essays, and active investigations without forcing everything into a single landing page."
-      />
-    </div>
-
-    <div class="surface">
-      <SectionHeading
-        eyebrow="Approach"
-        title="Structured enough to publish, light enough to keep moving"
-        description="Astro gives the site real structure without turning a personal website into a heavy application. That matters if the goal is to keep publishing instead of babysitting tooling."
-      />
-    </div>
-  </section>
-
-  <section>
-    <SectionHeading
-      eyebrow="Featured projects"
-      title="Current public work"
-      description="A small set for now, but each project has its own page and can grow into a fuller case study instead of staying trapped in a homepage card."
-    />
-
-    <div class="card-grid">
-      {
-        featuredProjects.map((project) => (
-          <ContentCard
-            href={`/projects/${project.id}/`}
-            kicker={project.data.status}
-            title={project.data.title}
-            description={project.data.description}
-            meta={project.data.tags.join(" / ")}
-          />
-        ))
-      }
-    </div>
-  </section>
-
-  <section>
-    <SectionHeading
-      eyebrow="Latest writing"
-      title="Essays, notes, and working ideas"
-      description="Writing matters here because some thoughts need more room than a feed gives them."
-    />
-
-    <div class="card-grid">
-      {
-        featuredWriting.map((entry) => (
-          <ContentCard
-            href={`/writing/${entry.id}/`}
-            kicker={entry.data.category}
-            title={entry.data.title}
-            description={entry.data.description}
-            meta={entry.data.readingTime}
-          />
-        ))
-      }
-    </div>
+  <section class="home-hero">
+    <h1 class="home-name" aria-label="Shayan Rabbi">
+      <span>SHAYAN</span>
+      <span>RABBI</span>
+    </h1>
+    <p class="home-tagline">Welcome to my corner of the internet</p>
   </section>
 </BaseLayout>
