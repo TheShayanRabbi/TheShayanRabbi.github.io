@@ -17,18 +17,18 @@ const { Content } = await render(entry);
 ---
 
 <BaseLayout title={`${entry.data.title} | Writing`} description={entry.data.description}>
+  <section class="page-hero page-hero--compact">
+    <p class="eyebrow">{entry.data.category}</p>
+    <h1 class="page-title">{entry.data.title}</h1>
+    <p class="page-hero__lede">{entry.data.description}</p>
+    <ul class="page-meta-row">
+      <li>{formatDate(entry.data.publishedAt)}</li>
+      <li>{entry.data.readingTime}</li>
+    </ul>
+  </section>
+
   <article class="article-wrap">
     <div class="article surface">
-      <header class="article-header">
-        <p class="eyebrow">{entry.data.category}</p>
-        <h1>{entry.data.title}</h1>
-        <p>{entry.data.description}</p>
-        <ul class="meta-list">
-          <li>{formatDate(entry.data.publishedAt)}</li>
-          <li>{entry.data.readingTime}</li>
-        </ul>
-      </header>
-
       <Content />
     </div>
   </article>

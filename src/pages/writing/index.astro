@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ContentCard from "../../components/ContentCard.astro";
-import SectionHeading from "../../components/SectionHeading.astro";
 import { sortByPublishedDate } from "../../utils/content";
 
 const writing = sortByPublishedDate(
@@ -14,24 +13,15 @@ const writing = sortByPublishedDate(
   title="Writing | Shayan Rabbi"
   description="Essays, notes, and build logs by Shayan Rabbi."
 >
-  <section class="page-intro surface">
-    <div class="article">
-      <p class="eyebrow">Writing</p>
-      <h1 class="page-title">A place for ideas that deserve more than a caption.</h1>
-      <p class="lede">
-        Writing entries live alongside project entries, but they use a separate
-        collection so the site can evolve into a magazine instead of a generic portfolio.
-      </p>
-    </div>
+  <section class="page-hero">
+    <p class="eyebrow">Writing</p>
+    <h1 class="page-title">Essays, notes, and fragments.</h1>
+    <p class="page-hero__lede">
+      Longer thoughts deserve a stable page instead of a disappearing feed.
+    </p>
   </section>
 
-  <section>
-    <SectionHeading
-      eyebrow="Writing archive"
-      title="Notes, essays, and logs"
-      description="This section is designed to support both polished essays and rougher build-in-public notes without changing the overall structure."
-    />
-
+  <section class="page-section">
     <div class="card-grid">
       {
         writing.map((entry) => (

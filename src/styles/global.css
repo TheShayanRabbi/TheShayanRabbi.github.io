@@ -53,6 +53,10 @@ img {
   padding: 1.25rem 0 4rem;
 }
 
+.page-main > * + * {
+  margin-top: 2.5rem;
+}
+
 .home-page {
   overflow: hidden;
 }
@@ -201,6 +205,22 @@ img {
   color: rgba(43, 27, 23, 0.7);
 }
 
+.page-hero {
+  min-height: 17rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  text-align: center;
+  padding: 2rem 0 1rem;
+}
+
+.page-hero--compact {
+  min-height: auto;
+  padding-top: 1rem;
+}
+
 .surface {
   border: 2px solid var(--ink);
   background: var(--surface);
@@ -228,12 +248,23 @@ img {
   margin-bottom: 0.75rem;
 }
 
+.page-hero .page-title {
+  max-width: 12ch;
+}
+
 .section-heading p,
 .content-card p,
 .lede,
+.page-hero__lede,
 .article p,
 .article li {
   color: rgba(43, 27, 23, 0.8);
+}
+
+.page-hero__lede {
+  max-width: 36rem;
+  margin: 0;
+  font-size: 1rem;
 }
 
 .card-grid {
@@ -262,34 +293,37 @@ img {
   font-size: 0.9rem;
 }
 
-.page-intro {
-  max-width: 46rem;
-  margin-bottom: 2rem;
-}
-
-.page-intro .page-title {
-  max-width: 14ch;
+.content-card__meta {
+  margin-bottom: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(43, 27, 23, 0.58);
 }
 
 .article-wrap {
   max-width: 54rem;
+  margin: 0 auto;
 }
 
 .article {
   padding: 1.5rem;
 }
 
-.article-header {
-  padding-bottom: 1.5rem;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid var(--line);
+.article > :first-child {
+  margin-top: 0;
 }
 
-.meta-list {
+.meta-list,
+.page-meta-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
   color: rgba(43, 27, 23, 0.72);
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .article :where(p, ul, ol, blockquote) {
@@ -310,6 +344,27 @@ img {
   margin-left: 0;
   padding-left: 1rem;
   border-left: 3px solid var(--red);
+}
+
+.page-section {
+  padding-top: 0.5rem;
+}
+
+.placeholder-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.placeholder-card {
+  padding: 1.25rem;
+}
+
+.placeholder-card h2 {
+  margin: 0 0 0.75rem;
+  font-family: "EB Garamond", serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 0.95;
 }
 
 .site-footer {
@@ -339,6 +394,10 @@ img {
 
   .home-hero {
     padding: 0.75rem 0;
+  }
+
+  .placeholder-grid {
+    grid-template-columns: 1fr;
   }
 }
 
