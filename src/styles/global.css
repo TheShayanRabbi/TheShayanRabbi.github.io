@@ -1,10 +1,13 @@
 :root {
-  --paper: #f4f1e8;
+  --paper: #ddd5c9;
+  --paper-shadow: #d3cabd;
   --ink: #2b1b17;
   --amber: #ff9f1c;
-  --red: #bc4749;
-  --surface: #fdfbf7;
-  --line: rgba(43, 27, 23, 0.16);
+  --red-dragon: #8a2e26;
+  --red-dragon-deep: #5d1f1a;
+  --surface: rgba(234, 226, 214, 0.9);
+  --line: rgba(43, 27, 23, 0.14);
+  --dot-grid: rgba(43, 27, 23, 0.16);
   --shadow: 4px 4px 0 var(--ink);
   --shadow-soft: 3px 3px 0 rgba(43, 27, 23, 0.7);
   --max-width: 72rem;
@@ -23,8 +26,14 @@ body {
   font-family: "Trebuchet MS", sans-serif;
   color: var(--ink);
   background-color: var(--paper);
-  background-image: radial-gradient(var(--ink) 0.5px, transparent 0.5px);
-  background-size: 24px 24px;
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(101, 74, 47, 0.04)),
+    linear-gradient(180deg, rgba(211, 202, 189, 0.16), transparent 28%),
+    radial-gradient(circle at 1px 1px, var(--dot-grid) 1px, transparent 1.2px);
+  background-size:
+    auto,
+    auto,
+    22px 22px;
   line-height: 1.5;
 }
 
@@ -170,8 +179,29 @@ img {
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 1rem;
+  gap: 1.1rem;
   padding: 1rem 0;
+}
+
+.home-name-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  cursor: pointer;
+  transition: transform 180ms ease;
+}
+
+.home-name-link:hover,
+.home-name-link:focus-visible {
+  transform: translate(1px, 1px);
+}
+
+.home-name-line {
+  width: 2px;
+  height: clamp(7rem, 15vw, 11rem);
+  background: var(--red-dragon);
+  box-shadow: 1px 0 0 rgba(43, 27, 23, 0.18);
+  transition: background-color 180ms ease, transform 180ms ease;
 }
 
 .home-name,
@@ -193,16 +223,32 @@ img {
   font-size: clamp(4.4rem, 14vw, 11rem);
   line-height: 0.78;
   letter-spacing: -0.05em;
-  color: var(--red);
+  color: var(--red-dragon);
+  transition:
+    color 180ms ease,
+    transform 180ms ease,
+    text-shadow 180ms ease;
+}
+
+.home-name-link:hover .home-name,
+.home-name-link:focus-visible .home-name {
+  color: var(--red-dragon-deep);
+  text-shadow: 1px 1px 0 rgba(43, 27, 23, 0.18);
+  transform: translate(1px, 1px);
+}
+
+.home-name-link:hover .home-name-line,
+.home-name-link:focus-visible .home-name-line {
+  background: var(--red-dragon-deep);
+  transform: translateY(1px);
 }
 
 .home-tagline {
   margin: 0;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(43, 27, 23, 0.7);
+  letter-spacing: 0.04em;
+  color: rgba(43, 27, 23, 0.72);
 }
 
 .page-hero {
@@ -285,7 +331,7 @@ img {
 
 .content-card a:hover,
 .content-card a:focus-visible {
-  color: var(--red);
+  color: var(--red-dragon);
 }
 
 .content-card__meta,
@@ -343,7 +389,7 @@ img {
 .article blockquote {
   margin-left: 0;
   padding-left: 1rem;
-  border-left: 3px solid var(--red);
+  border-left: 3px solid var(--red-dragon);
 }
 
 .page-section {
@@ -376,6 +422,7 @@ img {
 }
 
 .site-footer__inner {
+  justify-content: center;
   padding-top: 1rem;
   border-top: 1px solid var(--line);
   font-size: 0.72rem;
@@ -383,6 +430,10 @@ img {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(43, 27, 23, 0.5);
+}
+
+.journal-mark {
+  margin: 0;
 }
 
 @media (max-width: 900px) {
@@ -394,6 +445,10 @@ img {
 
   .home-hero {
     padding: 0.75rem 0;
+  }
+
+  .home-name-link {
+    gap: 1rem;
   }
 
   .placeholder-grid {
@@ -418,6 +473,10 @@ img {
 
   .home-name {
     font-size: clamp(3.6rem, 22vw, 6rem);
+  }
+
+  .home-name-line {
+    height: clamp(5.25rem, 24vw, 7rem);
   }
 
   .page-title,
