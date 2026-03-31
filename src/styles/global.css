@@ -173,6 +173,7 @@ img {
 }
 
 .home-hero {
+  position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -185,10 +186,11 @@ img {
 
 .home-name-link {
   display: inline-flex;
-  align-items: center;
+  align-items: stretch;
   gap: 1.25rem;
   cursor: pointer;
   transition: transform 180ms ease;
+  padding-block: 0.2rem;
 }
 
 .home-name-link:hover,
@@ -198,7 +200,7 @@ img {
 
 .home-name-line {
   width: 2px;
-  height: clamp(7rem, 15vw, 11rem);
+  align-self: stretch;
   background: var(--red-dragon);
   box-shadow: 1px 0 0 rgba(43, 27, 23, 0.18);
   transition: background-color 180ms ease, transform 180ms ease;
@@ -249,6 +251,19 @@ img {
   font-weight: 700;
   letter-spacing: 0.04em;
   color: rgba(43, 27, 23, 0.72);
+}
+
+.home-doodle {
+  position: absolute;
+  top: clamp(0.5rem, 2vw, 1rem);
+  right: clamp(0.5rem, 2vw, 1.5rem);
+  width: clamp(8rem, 14vw, 11rem);
+  height: auto;
+  image-rendering: pixelated;
+  opacity: 0.92;
+  transform: rotate(-4deg);
+  filter: drop-shadow(3px 3px 0 rgba(43, 27, 23, 0.18));
+  pointer-events: none;
 }
 
 .page-hero {
@@ -475,8 +490,11 @@ img {
     font-size: clamp(3.6rem, 22vw, 6rem);
   }
 
-  .home-name-line {
-    height: clamp(5.25rem, 24vw, 7rem);
+  .home-doodle {
+    top: 0.35rem;
+    right: 0;
+    width: clamp(6rem, 20vw, 8rem);
+    opacity: 0.8;
   }
 
   .page-title,
