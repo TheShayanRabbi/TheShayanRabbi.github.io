@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Artemis Inter";
+  src: url("/fonts/Artemis_Inter.otf") format("opentype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
 :root {
   --bg: #f5efe7;
   --bg-soft: #ebe1d4;
@@ -238,9 +246,12 @@ select {
 }
 
 .hero__title {
+  font-family: "Artemis Inter", "Newsreader", Georgia, serif;
   margin-top: 0.5rem;
   font-size: clamp(4.2rem, 11vw, 8rem);
   max-width: 6.2ch;
+  letter-spacing: -0.045em;
+  line-height: 0.88;
 }
 
 .hero__tagline {
@@ -328,12 +339,6 @@ select {
   display: grid;
   align-content: center;
   gap: 1rem;
-}
-
-.hero__doodle {
-  justify-self: end;
-  width: clamp(7rem, 18vw, 11rem);
-  filter: drop-shadow(0 18px 24px rgba(32, 28, 24, 0.12));
 }
 
 .note-card {
@@ -638,10 +643,6 @@ select {
 
   .hero__panel {
     grid-template-columns: 1fr;
-  }
-
-  .hero__doodle {
-    justify-self: start;
   }
 
   .header-row,

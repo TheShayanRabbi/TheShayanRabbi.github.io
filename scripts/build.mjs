@@ -363,7 +363,6 @@ function renderHomePage({ site, leadFeature, secondaryFeatures }) {
       </div>
     </div>
     <div class="hero__panel">
-      <img class="hero__doodle" src="/doodles/journal-greeter.svg" alt="" aria-hidden="true" width="176" height="176" />
       <article class="note-card surface">
         <p class="eyebrow">${escapeHtml(site.panelTitle)}</p>
         <p class="note-card__lede">${escapeHtml(site.heroPanel)}</p>
