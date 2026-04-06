@@ -122,14 +122,15 @@ select {
 .brand-home {
   display: inline-grid;
   place-items: center;
-  width: 3rem;
-  height: 3rem;
+  width: 4rem;
+  height: 3.15rem;
   border: 2px solid var(--ink);
   background: var(--surface-strong);
   box-shadow: var(--shadow);
-  font-size: 0.98rem;
+  font-size: 1.08rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  font-style: italic;
+  letter-spacing: 0.06em;
   transition:
     transform 140ms ease,
     box-shadow 140ms ease,
