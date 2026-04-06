@@ -1,0 +1,31 @@
+<p>
+  This repository now behaves like a quiet publishing system instead of a framework demo. The site is
+  generated from JSON content and HTML fragments, then shipped as plain static files to GitHub Pages.
+</p>
+
+<h2>Why strip it back</h2>
+
+<p>
+  The previous Astro setup worked, but it was more machinery than the current site needed. For a site
+  with a small route set and mostly editorial content, plain HTML and CSS are easier to edit, easier to
+  inspect, and much harder to overcomplicate by accident.
+</p>
+
+<h2>What the rewrite keeps</h2>
+
+<ul>
+  <li>A dedicated projects section</li>
+  <li>A dedicated writing section</li>
+  <li>Shared navigation and page layout</li>
+  <li>A watch-mode workflow for faster editing</li>
+  <li>GitHub Pages deployment through Actions</li>
+</ul>
+
+<h2>What it drops</h2>
+
+<ul>
+  <li>Framework routing for a tiny site</li>
+  <li>Markdown collection plumbing</li>
+  <li>Astro-specific config and generated types</li>
+  <li>Any ambiguity about what the final HTML looks like before deploy</li>
+</ul>

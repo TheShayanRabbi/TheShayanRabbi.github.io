@@ -1,0 +1,25 @@
+[
+  {
+    "slug": "the-shayan-rabbi-website",
+    "title": "TheShayanRabbi.github.io",
+    "description": "A deliberately small publishing system for projects, essays, and working notes.",
+    "publishedAt": "2026-03-29",
+    "status": "building",
+    "featured": true,
+    "tags": ["Static site", "GitHub Pages", "Publishing system"],
+    "liveUrl": "https://theshayanrabbi.github.io/",
+    "repoUrl": "https://github.com/TheShayanRabbi/TheShayanRabbi.github.io",
+    "bodyFile": "projects/the-shayan-rabbi-website.html"
+  },
+  {
+    "slug": "design-of-a-website-landing",
+    "title": "Design of a Website Landing",
+    "description": "A critique-led landing-page study aimed at removing persuasive theatre and restoring function.",
+    "publishedAt": "2026-03-17",
+    "status": "building",
+    "featured": true,
+    "tags": ["Landing pages", "Web design", "Design critique"],
+    "repoUrl": "https://github.com/TheShayanRabbi/Design-of-a-Website-Landing",
+    "bodyFile": "projects/design-of-a-website-landing.html"
+  }
+]
