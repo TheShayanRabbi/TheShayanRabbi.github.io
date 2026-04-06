@@ -1,36 +1,53 @@
 # TheShayanRabbi.github.io
 
-Personal website and magazine built with Astro.
+Personal website generated with a small Node build script and deployed to GitHub Pages.
 
 ## Stack
 
-- Astro 6
-- Markdown content collections
+- npm for scripts
+- JSON for structured content metadata
+- HTML fragments for long-form page bodies
+- One shared CSS file for layout and styling
 - GitHub Pages via GitHub Actions
 
-## Local development
+## Commands
 
 ```bash
 npm install
-npm run dev
-```
-
-## Build
-
-```bash
 npm run build
+npm run dev
+npm run preview
 ```
+
+- `npm run dev`: watch mode with rebuilds, local server, and browser reload
+- `npm run watch`: rebuild on change without starting the server
+- `npm run preview`: serve the existing `dist` output without watch mode
 
 ## Structure
 
-- `src/layouts`: page layouts
-- `src/components`: shared UI pieces
-- `src/pages`: routes
-- `src/content`: writing and project entries
-- `src/content.config.ts`: content schemas
+- `scripts/build.mjs`: generates the static site into `dist`
+- `scripts/serve.mjs`: tiny local preview server for `dist`
+- `src/data`: site, project, and writing metadata in JSON
+- `src/fragments`: HTML fragments for project and writing bodies
+- `src/styles/site.css`: shared site styling
+- `public`: files copied straight into the final site
 
-## Learning notes
+## Why this rewrite
 
-- Astro routes are file-based. `src/pages/about/index.astro` becomes `/about`.
-- Shared page chrome belongs in layouts, not in each page.
-- Content collections give typed frontmatter for markdown content such as projects and essays.
+The previous Astro setup worked, but it was more framework than this site currently needs.
+This version keeps the site explicit and easy to edit:
+
+- no framework router
+- no content collection layer
+- no hidden build behavior
+- plain static output that is easy to inspect before deploy
+
+## Editing flow
+
+Most content edits happen in:
+
+- `src/data/*.json` for titles, descriptions, dates, and metadata
+- `src/fragments/**/*` for page body copy
+- `src/styles/site.css` for layout and visual hierarchy
+
+That is the whole point: fewer hiding places, fewer moving parts, less nonsense.

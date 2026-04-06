@@ -1,21 +1,15 @@
 {
-  "name": "the-shayan-rabbi-website",
+  "name": "theshayanrabbi-github-io",
+  "private": true,
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "astro": "^6.1.1"
-  },
-  "devDependencies": {
-    "@astrojs/check": "^0.9.8",
-    "typescript": "^5.9.3"
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs",
+    "dev": "node scripts/dev.mjs",
+    "watch": "node scripts/dev.mjs --watch-only"
   }
 }

@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "from-heart-surgery-to-venture",
+    "title": "From heart surgery to venture",
+    "description": "A framing note on the shift from heart surgery to venture and why the work matters more than the backstory.",
+    "publishedAt": "2026-03-29",
+    "category": "Profile",
+    "readingTime": "2 min read",
+    "featured": true,
+    "bodyFile": "writing/from-heart-surgery-to-venture.html"
+  },
+  {
+    "slug": "against-digital-entropy",
+    "title": "Against digital entropy",
+    "description": "Notes on why the web feels overloaded and what a cleaner design stance actually demands.",
+    "publishedAt": "2026-03-20",
+    "category": "Design notes",
+    "readingTime": "3 min read",
+    "featured": true,
+    "bodyFile": "writing/against-digital-entropy.html"
+  }
+]
