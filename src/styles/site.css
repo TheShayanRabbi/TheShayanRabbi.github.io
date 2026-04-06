@@ -223,15 +223,6 @@ select {
   transform: translate(1px, 1px);
 }
 
-.home-lockup::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-top: 1px solid rgba(43, 27, 23, 0.18);
-  border-bottom: 1px solid rgba(43, 27, 23, 0.18);
-  pointer-events: none;
-}
-
 .home-lockup__row {
   display: grid;
   grid-template-columns: 4px auto;
@@ -285,7 +276,7 @@ select {
 }
 
 .home-name span + span {
-  margin-top: -0.02em;
+  margin-top: 0.06em;
 }
 
 .home-name span:last-child {
