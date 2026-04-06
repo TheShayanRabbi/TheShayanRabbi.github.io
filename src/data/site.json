@@ -3,30 +3,8 @@
   "url": "https://theshayanrabbi.github.io",
   "tagline": "Venture, digital infrastructure, and writing.",
   "description": "A clean publishing system for projects, essays, and working notes by Shayan Rabbi.",
-  "heroEyebrow": "Independent work",
-  "heroIntro": "I build and write around venture, digital infrastructure, and products that need a sharper point of view. This site keeps the work legible without the usual feed-shaped clutter.",
-  "heroPanel": "Former heart surgeon. Now focused on venture, digital infrastructure, and product thinking with a strong bias against avoidable complexity.",
-  "panelTitle": "Current focus",
-  "focusAreas": [
-    "Venture, diligence, and operator judgment",
-    "Digital infrastructure and product systems",
-    "Writing that explains the work without flattening it"
-  ],
-  "principles": [
-    {
-      "title": "Signal over spectacle",
-      "description": "If a page needs theatre to stay interesting, the thinking usually is not finished."
-    },
-    {
-      "title": "Structure should stay visible",
-      "description": "The files, the output, and the deploy path should all be easy to inspect without framework archaeology."
-    },
-    {
-      "title": "Small systems compound",
-      "description": "Short paths, explicit content, and a tiny build surface make publishing easier to sustain."
-    }
-  ],
+  "homeTagline": "Welcome to my corner of the internet.",
   "githubUrl": "https://github.com/TheShayanRabbi",
   "sourceUrl": "https://github.com/TheShayanRabbi/TheShayanRabbi.github.io",
-  "footerNote": "Generated with npm, JSON, HTML, and CSS."
+  "footerNote": "SR / 2026"
 }
