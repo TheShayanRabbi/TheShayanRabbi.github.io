@@ -68,6 +68,7 @@ export async function buildSite() {
         title: `${site.name} | ${site.tagline}`,
         description: site.description,
         bodyClass: "home-page",
+        scripts: ["/scripts/home-letter.js"],
         content: renderHomePage(site),
       }),
     }),
@@ -249,9 +250,10 @@ function renderPage(page) {
   return page;
 }
 
-function renderDocument({ site, pathName, title, description, content, bodyClass = "" }) {
+function renderDocument({ site, pathName, title, description, content, bodyClass = "", scripts = [] }) {
   const canonical = new URL(pathName, site.url).toString();
   const footer = pathName === "/" ? "" : renderFooter(site);
+  const scriptTags = scripts.map((src) => `    <script src="${escapeHtml(src)}" defer></script>`).join("\n");
 
   return `<!doctype html>
 <html lang="en">
@@ -282,6 +284,7 @@ function renderDocument({ site, pathName, title, description, content, bodyClass
       </main>
       ${footer}
     </div>
+${scriptTags}
   </body>
 </html>`;
 }
@@ -319,13 +322,46 @@ function renderFooter(site) {
 
 function renderHomePage(site) {
   return `<section class="home-hero container">
-    <a class="home-lockup" href="/projects/" aria-label="Open projects">
-      <div class="home-lockup__row">
-        <span class="home-lockup__line" aria-hidden="true"></span>
-        <h1 class="home-name">${renderStackedName(site.name)}</h1>
-      </div>
-      <p class="home-tagline">${escapeHtml(site.homeTagline)}</p>
-    </a>
+    <div class="home-stage" data-home-stage>
+      <a
+        class="home-lockup"
+        href="#letter-to-visitors"
+        role="button"
+        aria-expanded="false"
+        aria-controls="letter-to-visitors"
+        aria-label="Toggle letter to visitors"
+        data-home-toggle
+      >
+        <div class="home-lockup__row">
+          <span class="home-lockup__line" aria-hidden="true"></span>
+          <div class="home-nameframe">
+            <h1 class="home-name home-name--stacked">${renderStackedName(site.name)}</h1>
+            <p class="home-name home-name--inline" aria-hidden="true">${renderInlineName(site.name)}</p>
+          </div>
+        </div>
+        <p class="home-tagline">${escapeHtml(site.homeTagline)}</p>
+      </a>
+      <section class="home-letter" id="letter-to-visitors" data-home-letter aria-hidden="true" hidden>
+        <div class="home-letter__grid">
+          <div class="home-letter__lead">
+            <span class="home-letter__line" aria-hidden="true"></span>
+            <div class="home-letter__copy">
+              <p class="home-letter__eyebrow">${escapeHtml(site.homeLetterEyebrow)}</p>
+              <h2 class="home-letter__title">${escapeHtml(site.homeLetterTitle)}</h2>
+              <div class="home-letter__body">
+                ${site.homeLetterBody.map(renderLetterParagraph).join("")}
+              </div>
+            </div>
+          </div>
+          <aside class="home-polaroid" aria-label="Portrait placeholder">
+            <div class="home-polaroid__frame">
+              <div class="home-polaroid__print" aria-hidden="true"></div>
+              <p class="home-polaroid__caption">${escapeHtml(site.homeLetterPolaroidCaption)}</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </div>
   </section>`;
 }
 
@@ -420,6 +456,19 @@ function renderStackedName(name) {
     .filter(Boolean)
     .map((part) => `<span>${escapeHtml(part)}</span>`)
     .join("");
+}
+
+function renderInlineName(name) {
+  return name
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((part) => `<span>${escapeHtml(part)}</span>`)
+    .join("");
+}
+
+function renderLetterParagraph(text) {
+  const decorated = escapeHtml(text).replace(/[.,;:!?]/g, '<span class="ink-punct">$&</span>');
+  return `<p>${decorated}</p>`;
 }
 
 function renderRobots(site) {

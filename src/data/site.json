@@ -4,6 +4,13 @@
   "tagline": "Venture, digital infrastructure, and writing.",
   "description": "A clean publishing system for projects, essays, and working notes by Shayan Rabbi.",
   "homeTagline": "Welcome to my corner of the internet.",
+  "homeLetterEyebrow": "About / Thesis",
+  "homeLetterTitle": "A Letter to Visitors",
+  "homeLetterBody": [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi, gravida ac nibh vitae, vehicula imperdiet nibh.",
+    "Praesent dictum, velit sed faucibus porttitor, erat nunc luctus erat, sed posuere tellus erat eget urna. Integer mollis sapien nec justo maximus, id pulvinar mi lobortis."
+  ],
+  "homeLetterPolaroidCaption": "Portrait pending",
   "githubUrl": "https://github.com/TheShayanRabbi",
   "sourceUrl": "https://github.com/TheShayanRabbi/TheShayanRabbi.github.io",
   "footerNote": "SR / 2026"
