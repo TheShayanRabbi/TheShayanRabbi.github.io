@@ -215,10 +215,6 @@ select {
   width: 100%;
   min-height: min(76vh, 48rem);
   row-gap: 0;
-  transition:
-    min-height 720ms cubic-bezier(0.22, 1, 0.36, 1),
-    padding 720ms cubic-bezier(0.22, 1, 0.36, 1),
-    row-gap 520ms ease;
 }
 
 .home-stage.is-letter-open {
@@ -239,11 +235,8 @@ select {
   margin-inline: auto;
   padding: 0.8rem 1.2rem 0.7rem 0.9rem;
   cursor: pointer;
-  transition:
-    gap 420ms ease,
-    padding 420ms ease,
-    transform 180ms ease;
-  will-change: transform;
+  transition: transform 180ms ease;
+  will-change: transform, opacity;
 }
 
 .home-stage.is-letter-open .home-lockup {
@@ -262,7 +255,6 @@ select {
   grid-template-columns: 4px auto;
   align-items: start;
   column-gap: 1.28rem;
-  transition: column-gap 420ms ease;
 }
 
 .home-stage.is-letter-open .home-lockup__row {
@@ -291,9 +283,6 @@ select {
   position: relative;
   width: clamp(20rem, 46vw, 35rem);
   height: clamp(12.6rem, 27vw, 19.5rem);
-  transition:
-    width 720ms cubic-bezier(0.22, 1, 0.36, 1),
-    height 720ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .home-stage.is-letter-open .home-nameframe {
@@ -310,10 +299,11 @@ select {
   text-transform: uppercase;
   color: var(--red-dragon);
   text-shadow: 1px 1px 0 rgba(43, 27, 23, 0.08);
+  will-change: transform, opacity;
   transition:
-    opacity 260ms ease,
+    opacity 180ms ease,
     color 180ms ease,
-    transform 620ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
     text-shadow 180ms ease;
 }
 
@@ -391,39 +381,30 @@ select {
   letter-spacing: 0.035em;
   text-align: center;
   color: var(--muted);
-  transition:
-    opacity 220ms ease,
-    transform 420ms ease,
-    max-height 420ms ease,
-    margin 420ms ease;
 }
 
 .home-stage.is-letter-open .home-tagline {
-  opacity: 0;
-  transform: translateY(-0.65rem);
-  max-height: 0;
-  margin: -0.15rem 0 0;
-  overflow: hidden;
-  pointer-events: none;
+  display: none;
 }
 
 .home-letter {
   width: 100%;
   opacity: 0;
-  transform: translateY(-1rem);
-  max-height: 0;
+  transform: translateY(-0.7rem);
+  height: 0;
   overflow: clip;
   pointer-events: none;
+  will-change: transform, opacity, height;
   transition:
-    opacity 360ms ease,
-    transform 620ms cubic-bezier(0.22, 1, 0.36, 1),
-    max-height 760ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 260ms ease,
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    height 460ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .home-stage.is-letter-open .home-letter {
+  height: auto;
   opacity: 1;
   transform: none;
-  max-height: 64rem;
   pointer-events: auto;
 }
 
