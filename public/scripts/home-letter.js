@@ -6,7 +6,7 @@ if (stage) {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const openHash = "#letter-to-visitors";
   let isOpen = false;
-  let hideTimer = null;
+  let settleTimer = null;
 
   const setA11y = (expanded) => {
     toggle.setAttribute("aria-expanded", String(expanded));
@@ -42,10 +42,19 @@ if (stage) {
         },
       ],
       {
-        duration: 760,
+        duration: 620,
         easing: "cubic-bezier(0.22, 1, 0.36, 1)",
       },
     );
+  };
+
+  const resetLetterBox = ({ hidden } = {}) => {
+    window.clearTimeout(settleTimer);
+    letter.style.height = "";
+    letter.style.overflow = "";
+    letter.style.willChange = "";
+
+    letter.hidden = Boolean(hidden);
   };
 
   const setOpenState = (nextOpen, { immediate = false } = {}) => {
@@ -53,12 +62,30 @@ if (stage) {
       return;
     }
 
-    window.clearTimeout(hideTimer);
+    window.clearTimeout(settleTimer);
 
     const firstBox = immediate ? null : toggle.getBoundingClientRect();
 
+    if (immediate || reducedMotion) {
+      letter.hidden = !nextOpen;
+      stage.classList.toggle("is-letter-open", nextOpen);
+      setA11y(nextOpen);
+      isOpen = nextOpen;
+      syncHash(nextOpen);
+      resetLetterBox({ hidden: !nextOpen });
+      return;
+    }
+
     if (nextOpen) {
       letter.hidden = false;
+      letter.style.height = "0px";
+      letter.style.overflow = "clip";
+      letter.style.willChange = "height, opacity, transform";
+      letter.getBoundingClientRect();
+    } else {
+      letter.style.height = `${letter.offsetHeight}px`;
+      letter.style.overflow = "clip";
+      letter.style.willChange = "height, opacity, transform";
       letter.getBoundingClientRect();
     }
 
@@ -67,21 +94,19 @@ if (stage) {
     isOpen = nextOpen;
     syncHash(nextOpen);
 
+    const targetHeight = nextOpen ? `${letter.scrollHeight}px` : "0px";
+
+    requestAnimationFrame(() => {
+      letter.style.height = targetHeight;
+    });
+
     if (firstBox) {
       requestAnimationFrame(() => animateLockup(firstBox));
     }
 
-    if (!nextOpen) {
-      if (immediate || reducedMotion) {
-        letter.hidden = true;
-      } else {
-        hideTimer = window.setTimeout(() => {
-          if (!isOpen) {
-            letter.hidden = true;
-          }
-        }, 520);
-      }
-    }
+    settleTimer = window.setTimeout(() => {
+      resetLetterBox({ hidden: !isOpen });
+    }, 520);
   };
 
   toggle.addEventListener("click", (event) => {
